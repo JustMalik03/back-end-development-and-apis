@@ -19,5 +19,18 @@ AST lint remains limited to mechanically provable authoring errors:
 npm test
 npm run test:lint
 npm run test:crash
+npm run test:plugins
 node test/run.mjs --project build-a-web-server --lesson 15 --check crash
 ```
+
+## Extract curriculum content
+
+Use parsed lesson output instead of reading entire curriculum Markdown files:
+
+```sh
+npm run curriculum:extract -- --project build-a-resource-monitor --lesson 5 --section tests
+npm run curriculum:extract -- --project build-a-resource-monitor --lesson 5 --section description
+npm run curriculum:extract -- --project build-a-resource-monitor --lesson 5
+```
+
+Omit `--lesson` to output selected section from every lesson. Available sections: `lesson`, `description`, `tests`, `seed`, and `hooks`. Add `--json` for structured output.
